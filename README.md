@@ -1,13 +1,13 @@
 # Результаты выполнения заданий
 
 ## 1. Проверка версии Ubuntu `cat /etc/issue.`
-![1 version ubuntu](./img/1 version ubuntu.png)
+![1 version ubuntu](./img/1_version_ubuntu.png)
 
 ## 2. Создание нового пользователя и добавление в группу adm
 ### Создание нового пользователя `sudo adduser newuser`
 ### Добавление нового пользователя в группу adm `sudo usermod -aG adm newuser`
 ### Проверка, что новый пользователь добавлен в систему `cat /etc/passwd`
-![2 new user adm](./img/2 new user adm.png)
+![2 new user adm](./img/2_new_user_adm.png)
 ### Создание домашнего католога для пользователя
 ```sudo mkdir /home/rim
 sudo chown rim:rim /home/rim
@@ -23,14 +23,14 @@ sudo chown -R rim:rim /home/rim/
 ### Установка временной зоны `sudo timedatectl set-timezone Europe/Moscow`
 ### Вывод сетевых интерфейсов `ip link show`
 
-![3 hostname and timedatectl](./img/3 hostname and timedatectl.png)
+![3 hostname and timedatectl](./img/3_hostname_and_timedatectl.png)
 
 ### Объяснение наличию интерфейса lo
 Интерфейс `lo` (loopback) используется для сетевого взаимодействия внутри самой машины. Он позволяет программам общаться с сетью на самом компьютере без необходимости использовать реальные сетевые интерфейсы.
 
 ### IP адрес от DHCP сервера и маршруты `ip addr show`
 
-![3 ip show](./img/3 ip show.png)
+![3 ip show](./img/3_ip_show.png)
 
 ### Расшифровка DHCP
 DHCP (Dynamic Host Configuration Protocol) — это сетевой протокол, используемый для автоматической конфигурации сетевых параметров устройства. Он позволяет устройствам получать IP-адреса и другие параметры сети (например, шлюз и DNS-серверы) автоматически при подключении к сети.
@@ -38,7 +38,7 @@ DHCP (Dynamic Host Configuration Protocol) — это сетевой прото�
 ### Определение внешнего и внутреннего IP-адреса шлюза 
 #### Внутренний IP-адрес шлюза (IP по умолчанию) `ip route | grep default`
 #### Внешний IP-адрес шлюза `curl ifconfig.me`
-![3 ip dhcp, ip route](./img/3 ip dhcp, ip route.png)
+![3 ip dhcp, ip route](./img/3_ip_dhcp,ip_route.png)
 ### Настройка Ethernet
 ### Задание статических сетевых настроек`sudo vim /etc/netplan/01-netcfg.yaml`
 Добавить
@@ -53,24 +53,24 @@ DHCP (Dynamic Host Configuration Protocol) — это сетевой прото�
         addresses: [8.8.8.8, 1.1.1.1]
 ```
 
-![3 add static ethernet sitting](./img/3 add static ethernet sitting.png)
+![3 add static ethernet sitting](./img/3_add_static_ethernet_sitting.png)
 ### Применение изменений `sudo netplan apply`
-![3 applay changes](./img/3 applay changes.png)
+![3 applay changes](./img/3_applay_changes.png)
 ### Перезагрузка машины `sudo reboot`
-![3 reboot](./img/3 reboot.png)
+![3 reboot](./img/3_reboot.png)
 ### Проверка статичных настроек
 ```ip addr show
 ip route show
 cat /etc/resolv.conf
 ```
-![3 route and resolv](./img/3 route and resolv.png)
+![3 route and resolv](./img/3_route_and_resolv.png)
 ### Пинг 1.1.1.1 `ping -c 4 1.1.1.1`
-![3 ping 1 1 1 1](./img/3 ping 1 1 1 1.png)
+![3 ping 1 1 1 1](./img/3_ping_1_1_1_1.png)
 ### Пинг ya.ru `ping -c 4 ya.ru`
-![3 ping ya.ru](./img/3 ping ya.ru.png)
+![3 ping ya.ru](./img/3_ping_ya.ru.png)
 
 ## 4. Обновление системных пакетов `sudo apt update` -> `sudo apt upgrade -y` -> `sudo apt update`
-![4 update upgrade system](./img/4 update upgrade system.png)
+![4 update upgrade system](./img/4_update_upgrade_system.png)
 
 ## 5. Настройка пользователя rim для выполнения команд sudo
 
@@ -80,13 +80,13 @@ cat /etc/resolv.conf
 ### add to group `sudo` `sudo usermod -aG sudo rim`
 ### checkout to rim `su - rim`
 ### Создание домашней директории и переключение на пользователя rim
-![5 add dir for Rim, su rim](./img/5 add dir for Rim, su rim.png)
+![5 add dir for Rim, su rim](./img/5_add_dir_for_Rim,su_rim.png)
 ### Проверка переключения на пользователя rim
 ### check group user `groups rim`
-![5 add su rim](./img/5 add su rim.png)
+![5 add su rim](./img/5_add_su_rim.png)
 ### Изменение hostname `sudo hostnamectl set-hostname user-2`
 ### Проверка результата `hostnamectl`
-![5 check result](./img/5 check result.png)
+![5 check result](./img/5_check_result.png)
 
 ## 6. Настройка службы автоматической синхронизации времени
 ### check systemd-timesyncd
@@ -97,7 +97,7 @@ sudo systemctl start systemd-timesyncd
 ### set time zone `sudo timedatectl set-timezone Europe/Moscow`
 ### check result `timedatectl`
 ### Синхронизация времени c NTP-серверами `timedatectl show`
-![6 sync timedatectl](./img/6 sync timedatectl.png)
+![6 sync timedatectl](./img/6_sync_timedatectl.png)
 
 ## 7. Работа с текстовыми редакторами
 ### Install editor
@@ -107,44 +107,44 @@ sudo apt install vim nano joe
 
 ### VIM
 #### Сохранение изменений
-![7 vim wq](./img/7 vim wq.png)
+![7 vim wq](./img/7_vim_wq.png)
 Для сохранения изменений и выхода в VIM используется команда `:wq`.
 
 #### Выход без сохранения
-![7 vim q!](./img/7 vim q!.png)
+![7 vim q!](./img/7_vim_q!.png)
 Для выхода без сохранения в VIM используется команда `:q!`.
 
 #### Поиск и замена текста
-![7 VIM find and change](./img/7 VIM find and change .png)
-![7 VIM find and change result](./img/7 VIM find and change result.png)
+![7 VIM find and change](./img/7_VIM_find_and_change .png)
+![7 VIM find and change result](./img/7_VIM_find_and_change_result.png)
 Для поиска текста в VIM используется команда `/слово`, для замены текста используется команда `:%s/старое_слово/новое_слово/g`.
 
 ### NANO
 #### Сохранение изменений
-![7 nano save](./img/7 nano save.png)
+![7 nano save](./img/7_nano_save.png)
 Для сохранения изменений и выхода в NANO используется комбинация клавиш `Ctrl+O` для сохранения и `Ctrl+X` для выхода.
 
 #### Выход без сохранения
-![7 nano no save](./img/7 nano no save.png)
+![7 nano no save](./img/7_nano_no_save.png)
 Для выхода без сохранения в NANO используется комбинация клавиш `Ctrl+X` и затем `N` для подтверждения.
 
 #### Поиск и замена текста
-![7 nano find and change](./img/7 nano find and change.png)
-![7 nano find and change result](./img/7 nano find and change result.png)
+![7 nano find and change](./img/7_nano_find_and_change.png)
+![7 nano find and change result](./img/7_nano_find_and_change_result.png)
 Для поиска текста в NANO используется комбинация клавиш `Ctrl+W`, для замены текста используется комбинация клавиш `Ctrl+\\`.
 
 ### JOE
 #### Сохранение изменений
-![7 joe save ctrl+k - x](./img/7 joe save ctrl+k - x.png)
+![7 joe save ctrl+k - x](./img/7_joe_save_ctrl+k_-_x.png)
 Для сохранения изменений и выхода в JOE используется комбинация клавиш `Ctrl+K` затем `X`.
 
 #### Выход без сохранения
-![7 joe no save ctrl+c - d](./img/7 joe no save ctrl+c - d.png)
+![7 joe no save ctrl+c - d](./img/7_joe_no_save_ctrl+c_-_d.png)
 Для выхода без сохранения в JOE используется комбинация клавиш `Ctrl+C` затем `D`.
 
 #### Поиск и замена текста
-![7 JOE find and chang](./img/7 JOE find and chang.png)
-![7 JOE find and chang result](./img/7 JOE find and chang result.png)
+![7 JOE find and chang](./img/7_JOE_find_and_chang.png)
+![7 JOE find and chang result](./img/7_JOE_find_and_chang_result.png)
 Для поиска текста в JOE используется комбинация клавиш `Ctrl+K` затем `F`, для замены текста используется комбинация клавиш `Ctrl+K` затем `H`.
 
 ## 8. Настройка SSH
@@ -153,14 +153,14 @@ sudo apt install vim nano joe
 
 ### Перенастройка службы SSHd
 `sudo vim /etc/ssh/sshd_config` -> /#Port 22 -> Port 2022
-![8 ssh PORT 2022](./img/8 ssh PORT 2022.png)
+![8 ssh PORT 2022](./img/8_ssh_PORT_2022.png)
 
 ### Проверка службы SSHd
 
 ### Перезапуск службы SSH `sudo systemctl restart ssh`
 ### Проверка процесса SSHd `ps aux | grep sshd`
 
-![8 check SSHd servicec](./img/8 check SSHd servicec.png)
+![8 check SSHd servicec](./img/8_check_SSHd_servicec.png)
 
 ### Использование команды ps для проверки процесса sshd
 Команда `ps aux | grep sshd` используется для проверки наличия процесса sshd. В этой команде:
@@ -174,7 +174,7 @@ sudo apt install vim nano joe
 ```sudo apt install net-tools  # Установить netstat, если еще не установлен
 netstat -tan | grep 2022
 ```
-![8 netstat checking port result](./img/8 netstat checking port result.png)
+![8 netstat checking port result](./img/8_netstat_checking_port_result.png)
 
 ### Объяснение ключей netstat -tan
 - `-t` - отображает только TCP-соединения.
@@ -194,38 +194,38 @@ netstat -tan | grep 2022
 ## 9. Использование утилит top и htop `sudo apt install top htop`
 ### Вывод top
 #### Общий вывод
-![9 top](./img/9 top.png)
+![9 top](./img/9_top.png)
 #### PID процесса с максимальным использованием памяти
-![9 top PID max mem](./img/9 top PID max mem.png)
+![9 top PID max mem](./img/9_top_PID_max_mem.png)
 #### Процесс с максимальным использованием CPU
-![9 top max CPU](./img/9 top max CPU.png)
+![9 top max CPU](./img/9_top_max_CPU.png)
 #### Процесс с максимальным временем работы
-![9 top max time](./img/9 top max time.png)
+![9 top max time](./img/9_top_max_time.png)
 
 ### Вывод `htop`
-![9 htop](./img/9 htop.png)
+![9 htop](./img/9_htop.png)
 #### Сортировка по PID `F6` -> `PID` -> `Enter`
-![9 htop sort PID](./img/9 htop sort PID.png)
+![9 htop sort PID](./img/9_htop_sort_PID.png)
 #### Сортировка по PERCENT_CPU `F6` -> `PERCENT_CPU` -> `Enter`
-![9 htop sort PERCENT_CPU](./img/9 htop sort PERCENT_CPU.png)
+![9 htop sort PERCENT_CPU](./img/9_htop_sort_PERCENT_CPU.png)
 #### Сортировка по PERCENT_MEM `F6` -> `PERCENT_MEM` -> `Enter`
-![9 htop sort PERCENT_MEM](./img/9 htop sort PERCENT_MEM.png)
+![9 htop sort PERCENT_MEM](./img/9_htop_sort_PERCENT_MEM.png)
 #### Сортировка по TIME `F6` -> `TIME` -> `Enter`
-![9 htop sort time](./img/9 htop sort time.png)
+![9 htop sort time](./img/9_htop_sort_time.png)
 #### Фильтрация для процесса sshd `F4` -> `sshd` -> `Enter`
-![9 htop F4 SSHD](./img/9 htop F4 SSHD.png)
+![9 htop F4 SSHD](./img/9_htop_F4_SSHD.png)
 #### Поиск процесса syslog `/` -> `syslog` -> `Enter`
-![9 htop syslog](./img/9 htop syslog.png)
+![9 htop syslog](./img/9_htop_syslog.png)
 #### Общий вывод с добавлением hostname, clock и uptime 
 `F2` -> `Meters` -> tab x3 column `Avilable meters` -> On `Cloc, Hostname, Uptime`-> in column `Right column` will append `Cloc, Hostname, Uptime` -> `F10`
 
-![9 htops hostname  clock uptime](./img/9 htops hostname  clock uptime.png)
+![9 htops hostname  clock uptime](./img/9_htops_hostname_clock_uptime.png)
 
 
 ## 10. Использование утилиты fdisk `fdisk -l`
 
 ### Вывод команды `fdisk -l`
-![fdisk -l](./img/10 fdisk_l_output.png)
+![fdisk -l](./img/10_fdisk_l_output.png)
 
 ### Название жесткого диска
 Жесткий диск: `/dev/sda`
@@ -248,7 +248,7 @@ sudo swapon /swapfile # Активация swap файла
 echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab # Добавление swap-файл в fstab для авто подключения при старте
 ```
 
-![add swap fdisk](./img/10 add swap fdisk.png)
+![add swap fdisk](./img/10_add_swap_fdisk.png)
 
 Swap-файл не отображается в выводе команды `fdisk -l`, так как `fdisk` работает только с физическими разделами диска. Swap-файл — это обычный файл в файловой системе, и его наличие проверяется другими средствами.
 
@@ -256,7 +256,7 @@ Swap-файл не отображается в выводе команды `fdis
 
 Для проверки текущего состояния swap-файла и его использования, используется команда `sudo swapon --show`.
 
-![check swap fdisk](./img/10 check swap fdisk.png)
+![check swap fdisk](./img/10_check_swap_fdisk.png)
 
 
 ## 11. Использование утилиты `df`
